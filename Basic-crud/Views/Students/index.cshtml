@@ -1,0 +1,55 @@
+﻿@model List<Student> 
+@{
+    ViewData["Title"] = "List Student";
+}
+
+<div class="container">
+<div class="row">
+    <h1>List of Student</h1
+
+<div class="">
+    <div class="col">
+        <a asp-controller="Students" asp-action="Create" class="btn btn-primary">Add New</a>
+    </div>
+</div>
+
+<div class="col">
+    <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Price</th>
+            <th>Beg Date</th>
+            <th>End Date</th>
+            <th>Created At</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var stu in Model){
+            <tr>
+                <td>@stu.Id</td>
+                <td>@stu.Name</td>
+                <td>@stu.Gender</td>
+                <td>@stu.Email</td>
+                <td>@stu.Course</td>
+                <td>@stu.Price $</td>
+                <td>@stu.BegDate</td>
+                <td>@stu.EndDate</td>
+                <td>@stu.CreatedAt.ToString("MM-dd-yyyy")</td>
+                 <td>
+                    <a asp-controller="Students" asp-action="View" asp-route-id="@stu.Id" class="btn btn-sm btn-info">View</a>
+                    <a asp-controller="Students" asp-action="Edit" asp-route-id="@stu.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-controller="Students" asp-action="Delete" asp-route-id="@stu.Id" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this student?');">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+</divc>
+</div>

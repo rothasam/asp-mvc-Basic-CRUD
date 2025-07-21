@@ -1,0 +1,71 @@
+﻿@model Basic_crud.Models.Student
+
+@{
+    ViewData["Title"] = "Update Student";
+}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-6 m-auto">
+            <h2 class="text-center mb-4">Update Student</h2>
+            <form asp-action="Edit" method="post" class="row">
+                <input type="hidden" asp-for="Id" />
+                <div class="col-6 mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="col-6 mb-3">
+                    <label asp-for="Gender" class="form-label"></label>
+                    <select asp-for="Gender" class="form-control">
+                        <option value="">-- Select Gender --</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+
+                <div class="col-12 mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="col-6 mb-3">
+                    <label asp-for="Course" class="form-label"></label>
+                    <input asp-for="Course" class="form-control" />
+                    <span asp-validation-for="Course" class="text-danger"></span>
+                </div>
+
+                <div class="col-6 mb-3">
+                    <label asp-for="Price" class="form-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+
+                <div class="col-6 mb-3">
+                    <label asp-for="BegDate" class="form-label"></label>
+                    <input asp-for="BegDate" type="date" class="form-control" />
+                    <span asp-validation-for="BegDate" class="text-danger"></span>
+                </div>
+
+                <div class="col-6 mb-3">
+                    <label asp-for="EndDate" class="form-label"></label>
+                    <input asp-for="EndDate" type="date" class="form-control" />
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-success mb-3">Save</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
